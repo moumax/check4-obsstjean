@@ -2,7 +2,7 @@ const Joi = require("joi");
 const AbstractManager = require("./AbstractManager");
 
 class UserManager extends AbstractManager {
-  static table = "user";
+  static table = "users";
 
   validate(data, forCreation = true) {
     this.presence = forCreation ? "required" : "optional";

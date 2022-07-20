@@ -3,13 +3,9 @@ const { hashPassword } = require("../helpers/argonHelper");
 
 class UserController {
   static browse = (req, res) => {
-    models.user
+    models.users
       .findAll()
-      .then(([rows]) => {
-        const answer = rows.filter((user) => user.id === req.userId);
-
-        res.send(answer);
-      })
+      .then((users) => res.send(users))
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
@@ -17,16 +13,14 @@ class UserController {
   };
 
   static read = (req, res) => {
-    models.user
+    models.users
       .find(req.params.id)
-      .then(([rows]) => {
-        const filteredAnswer = rows.filter((user) => user.id === req.userId);
-
-        if (!rows.length) res.sendStatus(404);
-
-        if (rows.length && !filteredAnswer.length) res.sendStatus(403);
-
-        if (rows.length && filteredAnswer.length) res.send(filteredAnswer);
+      .then((user) => {
+        if (user.length === 0) {
+          res.sendStatus(404);
+        } else {
+          res.send(user);
+        }
       })
 
       .catch((err) => {
@@ -40,7 +34,7 @@ class UserController {
     const authorized = true;
 
     if (authorized) {
-      const validationErrors = models.user.validate(newUser);
+      const validationErrors = models.users.validate(newUser);
       if (validationErrors) {
         console.error(validationErrors);
         return res.status(422).json({ validationErrors });
@@ -49,7 +43,7 @@ class UserController {
       hashPassword(newUser.password).then((hash) => {
         delete newUser.password;
 
-        models.user
+        models.users
           .insert({ ...newUser, password_hash: hash })
           .then(([result]) => {
             res.status(201).send({ ...newUser, id: result.insertId });
@@ -72,10 +66,10 @@ class UserController {
         newUser.password_hash = await hashPassword(newUser.password);
         delete newUser.password;
       }
-      const validationErrors = models.user.validate(newUser, false);
+      const validationErrors = models.users.validate(newUser, false);
       if (validationErrors) res.status(422).json({ validationErrors });
       else {
-        models.user
+        models.users
           .update(newUser, req.params.id)
           .then(([result]) => {
             if (result.affectedRows === 0)
@@ -95,7 +89,7 @@ class UserController {
     const authorized = true;
 
     if (authorized) {
-      models.user
+      models.users
         .delete(req.params.id)
         .then(() => {
           res.sendStatus(204);

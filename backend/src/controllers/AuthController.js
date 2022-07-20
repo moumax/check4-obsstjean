@@ -5,7 +5,7 @@ const { encodeJwt } = require("../helpers/jwtHelper");
 exports.login = (req, res) => {
   const { mail, password } = req.body;
 
-  models.user.findByUserEmail(mail).then((user) => {
+  models.users.findByUserEmail(mail).then((user) => {
     if (!user) {
       res.status(401).send("Invalid credentials");
     }
@@ -18,8 +18,8 @@ exports.login = (req, res) => {
             const userAnswer = user[0];
             delete userAnswer.password_hash;
             const token = encodeJwt(userAnswer);
-            res.cookie("token", token, { httpOnly: true, secure: false });
-            res.status(200).json({ id: userAnswer.id, name: userAnswer.mail });
+            res.cookie("token", token, { httpOnly: false, secure: false });
+            res.status(200).json({ id: userAnswer.id, mail: userAnswer.mail });
           } else {
             res.status(401).send("Invalid credentials");
           }
