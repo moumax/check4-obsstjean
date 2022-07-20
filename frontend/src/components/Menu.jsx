@@ -43,8 +43,8 @@ export default function Menu() {
       >
         Events
       </button>
-      <button type="button" style={style3}>
-        Admin
+      <button type="button" style={style3} onClick={() => navigate("../login")}>
+        Login
       </button>
     </Planet>
   );

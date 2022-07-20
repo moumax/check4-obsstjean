@@ -1,10 +1,8 @@
-import Menu from "../components/Menu";
 import "../styles/Events.scss";
 
 export default function Events() {
   return (
     <div className="events-container">
-      <Menu />
       <div className="container">
         <p className="title">Events</p>
         <p>

@@ -1,10 +1,8 @@
-import Menu from "../components/Menu";
 import "../styles/Home.scss";
 
 export default function Home() {
   return (
     <div className="home-container">
-      <Menu />
       <div className="container">
         <p className="title">TITLE</p>
         <p>
