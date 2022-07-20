@@ -12,11 +12,11 @@ export default function Observatoire() {
         <div>
           <div className="observatoireTitre">
             <h1>Obsstjean</h1>
-            <h6>L'Observatoire</h6>
+            <h6>LObservatoire</h6>
           </div>
           <p>
-            Depuis 1985, l'Association accueille le public dans le but de
-            promouvoir l'astronomie amateur.
+            Depuis 1985, lAssociation accueille le public dans le but de
+            promouvoir lastronomie amateur.
             <br />
             Situés en plein coeur de la ville de Saint Jean Le Blanc, nous vous
             proposons de découvrir le ciel au travers de nos différentes

@@ -7,7 +7,7 @@ export default function Title() {
     <div className="title">
       {" "}
       <h1>Observatoire Astronomique de Saint Jean Le Blanc</h1>
-      <h6>Association loi 1901 pour la promotion de l'astronomie amateur</h6>
+      <h6>Association loi 1901 pour la promotion de lastronomie amateur</h6>
     </div>
   );
 }
