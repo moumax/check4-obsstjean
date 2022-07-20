@@ -1,11 +1,14 @@
 import Home from "./pages/Home";
 
-import "./App.css";
+import "./App.scss";
+import "./styles/reset.scss";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
+    <div className="app">
+      <div className="full-container">
+        <Home />
+      </div>
     </div>
   );
 }

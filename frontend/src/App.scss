@@ -1,0 +1,18 @@
+@import "./styles/Variables.scss";
+
+.app {
+  background-color: $background-global;
+  font-family: $main-font;
+  font-weight: bold;
+}
+
+.full-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 10px;
+}
