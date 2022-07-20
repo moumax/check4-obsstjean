@@ -1,36 +1,22 @@
-import Counter from "@components/Counter";
-import logo from "@assets/logo.svg";
+import "../styles/Home.scss";
 
 export default function Home() {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
-
-      <Counter />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+    <div className="home-container">
+      <div className="container">
+        <p className="title">TITLE</p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis,
+          corrupti odio aliquid cumque aperiam inventore nisi aut beatae. Facere
+          dicta deleniti aliquid dolor nobis quo numquam! Minima, placeat
+          mollitia? Corporis. Cumque aut odit eum necessitatibus delectus eius
+          doloremque? Non explicabo excepturi, maxime ipsa, dignissimos beatae
+          voluptatum sequi vero quo alias rem nulla quasi? Numquam fuga
+          consequuntur sequi facilis cumque corrupti! Illum quia natus sit
+          ipsum. Voluptas facilis voluptates ea fugiat dolorem expedita odit,
+          consequatur eius beatae maiores odio atque. Numquam quos officia modi
+        </p>
+      </div>
+    </div>
   );
 }
