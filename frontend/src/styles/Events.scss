@@ -1,0 +1,16 @@
+@import "./Variables.scss";
+
+.events-container {
+  padding: 100px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    padding-bottom: 300px;
+  }
+}
