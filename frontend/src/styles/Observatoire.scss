@@ -1,0 +1,44 @@
+@import "./Variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
+
+.observatoire {
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  .observatoireTitre {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0;
+    margin-bottom: 6vw;
+  }
+
+  h1 {
+    font-size: 4vw;
+    opacity: 0.3;
+  }
+
+  h6 {
+    font-size: 1vw;
+    font-weight: 300;
+  }
+
+  .observatoireImg {
+    flex: 1;
+  }
+
+  img {
+    border-radius: 10px;
+    width: 800px;
+    margin-left: -20px;
+  }
+
+  .observatoireDetails {
+    flex: 1;
+  }
+
+  p {
+    font-size: 1.3vw;
+    font-family: "Exo 2", sans-serif;
+  }
+}
