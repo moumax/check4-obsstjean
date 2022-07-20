@@ -1,28 +1,41 @@
 const express = require("express");
 const path = require("path");
-
 const cors = require("cors");
-
-// let's create express app
+const cookieParser = require("cookie-parser");
+const auth = require("./middlewares/auth");
+require("dotenv").config();
 
 const app = express();
 
-// use some application-level middlewares
+app.use(cookieParser());
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
+    origin: process.env.FRONTEND_URL ?? "http://localhost:5000",
+    credentials: true,
     optionsSuccessStatus: 200,
   })
 );
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
 
-// load router
+const router = express.Router();
+const userRouter = require("./Routes/userRouter");
+const authRouter = require("./Routes/authRouter");
 
-const router = require("./router");
+router.use("/user", auth, userRouter);
+router.use("/auth", authRouter);
 
-app.use(router);
+// API routes
+app.use("/api", router);
 
-// ready to export
+// Redirect all requests to the REACT app
+app.get("/*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
+  );
+});
+
 module.exports = app;
