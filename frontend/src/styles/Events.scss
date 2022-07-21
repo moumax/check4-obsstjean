@@ -2,15 +2,19 @@
 
 .events-container {
   padding: 100px;
-}
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  .title {
-    padding-bottom: 300px;
+    .title {
+      font-size: 2.5rem;
+      padding-bottom: 300px;
+      background: linear-gradient(to bottom, #fffc08, #575506);
+      opacity: 1;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   }
 }

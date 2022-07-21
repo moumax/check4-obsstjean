@@ -5,7 +5,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="container">
-        Page login
+        <h1>Page login</h1>
         <InputLogin />
       </div>
     </div>
