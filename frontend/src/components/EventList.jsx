@@ -18,6 +18,29 @@ export default function EventList() {
     });
   };
 
+  const createNewEvent = (e) => {
+    e.preventDefault();
+    userAPI
+      .post(`/api/event`, {
+        title,
+        description,
+        date,
+        site,
+      })
+      .then(() => {
+        toast.success("Good");
+        getEvent();
+        setTitle("");
+        setDescription("");
+        setDate("");
+        setSite("");
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.warning("Erreur lors de l'envoi du formulaire");
+      });
+  };
+
   const deleteEvent = (id) => {
     userAPI
       .delete(`/api/event/${id}`)
@@ -100,6 +123,45 @@ export default function EventList() {
           </button>
         </ul>
       ))}
+      <ul className="create">
+        <li>
+          <input
+            className="input-event"
+            type="text"
+            name="event"
+            placeholder="Titre"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            className="input-event"
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <input
+            className="input-event"
+            type="text"
+            name="date"
+            placeholder="Date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <input
+            className="input-event"
+            type="text"
+            name="lieu"
+            placeholder="Lieu"
+            value={site}
+            onChange={(e) => setSite(e.target.value)}
+          />
+        </li>
+        <button type="submit" onClick={createNewEvent}>
+          Ajouter cet event
+        </button>
+      </ul>
     </div>
   );
 }
