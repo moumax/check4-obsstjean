@@ -10,11 +10,144 @@
 
     .title {
       font-size: 2.5rem;
-      padding-bottom: 300px;
+      padding-bottom: 100px;
       background: linear-gradient(to bottom, #fffc08, #575506);
       opacity: 1;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
+    ul {
+      margin-top: 20px;
+    }
+  }
+}
+
+.timeline {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline a {
+  color: red;
+}
+
+.timeline h2 {
+  font-size: 1.5rem;
+}
+
+.timeline li p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1rem;
+}
+
+.timeline ul {
+  border-left: 3px solid #ffe838;
+  border-radius: 1.8vw;
+  margin: 0 auto;
+  position: relative;
+  padding: 5vw;
+  list-style: none;
+  text-align: left;
+  width: 80%;
+  left: 5vw;
+}
+
+.timeline .date {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2vw;
+  padding-bottom: 1vw;
+  margin-left: 1.1vw;
+  position: relative;
+}
+
+.timeline .date:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+.timeline .date::before,
+.timeline .date::after {
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.timeline .date::before {
+  content: attr(data-date);
+  left: -25vw;
+  width: 9vw;
+  text-align: right;
+}
+
+.timeline .date::after {
+  content: "";
+  box-shadow: 0 0 0 2px #fd57bf;
+  border-radius: 100%;
+  left: -6.7vw;
+  height: 1vw;
+  width: 1vw;
+  background-color: #313534;
+}
+
+.timeline li.date::before {
+  font-size: 1.2vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .timeline ul {
+    left: 8vw;
+  }
+
+  .timeline h1 {
+    font-size: 2vw;
+  }
+
+  .timeline li p {
+    font-size: 1.3vw;
+  }
+
+  .timeline li.date::before {
+    font-size: 1vw;
+  }
+
+  .timeline ul {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .timeline h1 {
+    font-size: 3.5vw;
+  }
+
+  .timeline li p {
+    font-size: 2.5vw;
+  }
+
+  .timeline li.date::before {
+    text-align: center;
+    font-size: 2.5vw;
+  }
+
+  .timeline ul {
+    width: 85%;
+    border-left: 2px solid #ffe838;
+  }
+
+  .timeline .date::after {
+    box-shadow: 0 0 0 1px #fd57bf;
+    left: -7.2vw;
+    height: 2vw;
+    width: 2vw;
+  }
+
+  .timeline .date::before {
+    left: -20vw;
+    width: 12vw;
   }
 }
