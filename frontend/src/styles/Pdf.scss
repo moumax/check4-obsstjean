@@ -1,0 +1,64 @@
+@import "../styles/Variables.scss";
+
+.pdf-container {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.PDFPage {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.PDFPageOne {
+  margin-bottom: 5px;
+}
+
+.PDFDocument {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.PDFPage > canvas,
+.PDFPage > div {
+  width: 90vw !important;
+  max-width: 100%;
+  height: auto !important;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  width: 70px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.2s ease-in-out;
+  margin: 5px;
+}
+
+.Pre {
+  margin-left: 50px;
+}
+
+@media (min-width: 767px) {
+  .PDFPage > canvas,
+  .PDFPage > div {
+    width: auto !important;
+
+    height: 80vh !important;
+    max-height: 100%;
+  }
+
+  .PDFPage > .react-pdf__Page__annotations {
+    display: none;
+  }
+}
