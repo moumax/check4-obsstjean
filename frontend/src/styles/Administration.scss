@@ -5,14 +5,28 @@
   flex-direction: column;
   align-items: center;
 
-  .container {
-    margin-bottom: 200px;
-    font-size: 2.5rem;
-    h1 {
-      background: linear-gradient(to bottom, #fffc08, #575506);
-      opacity: 1;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+  // .container {
+  //   margin-bottom: 200px;
+  //   font-size: 2.5rem;
+  //   h1 {
+  //     background: linear-gradient(to bottom, #fffc08, #575506);
+  //     opacity: 1;
+  //     -webkit-background-clip: text;
+  //     -webkit-text-fill-color: transparent;
+  //   }
+  // }
+}
+
+.event-list {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // color: red;
+
+  ul {
+    margin-bottom: 20px;
   }
 }
