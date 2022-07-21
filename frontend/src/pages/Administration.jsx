@@ -6,10 +6,10 @@ import "../styles/Variables.scss";
 export default function Administration() {
   return (
     <div className="administration-container">
-      <div className="container">
-        <h1>Administration</h1>
+      <h1>Administration</h1>
+      <div className="event-list">
+        <EventList />
       </div>
-      <EventList />
       <EventAdmin />
     </div>
   );
