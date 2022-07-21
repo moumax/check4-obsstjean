@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import userAPI from "../services/userAPI";
 import "../styles/Events.scss";
 
 export default function Events() {
+  const navigate = useNavigate();
   const [event, setEvent] = useState([]);
   const getEvent = () => {
     userAPI.get("/api/event").then((response) => {
@@ -30,6 +32,12 @@ export default function Events() {
           ))}
         </div>
       </div>
+      <button type="button" onClick={() => navigate("/ciel")}>
+        Go
+      </button>
+      <button type="button" onClick={() => navigate("/")}>
+        Back
+      </button>
     </div>
   );
 }

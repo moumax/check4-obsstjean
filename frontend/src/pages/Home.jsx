@@ -11,10 +11,10 @@ export default function Home() {
         <Title />
         <Observatoire />
         <button type="button" onClick={() => navigate("/events")}>
-          x
+          Go
         </button>
-        <button type="button" onClick={() => navigate("/events")}>
-          o
+        <button type="button" onClick={() => navigate("/contact")}>
+          Back
         </button>
       </div>
     </div>
