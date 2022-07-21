@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import userAPI from "../services/userAPI";
