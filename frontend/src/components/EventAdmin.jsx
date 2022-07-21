@@ -5,7 +5,6 @@ import "../styles/EventAdmin.scss";
 export default function EventAdmin() {
   return (
     <div className="event-admin-container">
-      <h2>Events list</h2>
       <h2>Gestion des evenements</h2>
       <form className="form-add-event">
         <input
