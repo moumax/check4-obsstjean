@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import userAPI from "../services/userAPI";
+import rightArrow from "../assets/right-arrow.svg";
+import leftArrow from "../assets/left-arrow.svg";
 import "../styles/Events.scss";
 
 export default function Events() {
@@ -14,29 +16,45 @@ export default function Events() {
 
   useEffect(() => {
     getEvent();
-  }, []);
+  }, [event]);
 
   return (
     <div className="events-container">
-      <div className="container">
-        <h1 className="title">Events</h1>
-        <div className="timeline">
-          {event.map((data) => (
-            <ul>
-              <li className="date" data-date={data.date}>
-                <h2>{data.title}</h2>
-                <p>{data.description}</p>
-                <p>{data.site}</p>
-              </li>
-            </ul>
-          ))}
-        </div>
+      <h1 className="title">Events</h1>
+      <div className="timeline">
+        {event.map((data) => (
+          <ul>
+            <li className="date">
+              <p className="event-date">{data.date}</p>
+              <h2 className="event-title">{data.title}</h2>
+              <p className="event-description">{data.description}</p>
+              <p className="event-site">{data.site}</p>
+            </li>
+          </ul>
+        ))}
       </div>
-      <button type="button" onClick={() => navigate("/ciel")}>
-        Go
+
+      <button
+        className="button-right"
+        type="button"
+        onClick={() => navigate("/ciel")}
+      >
+        <img
+          src={rightArrow}
+          alt="navigation"
+          style={{ height: 53, width: 36 }}
+        />
       </button>
-      <button type="button" onClick={() => navigate("/")}>
-        Back
+      <button
+        className="button-left"
+        type="button"
+        onClick={() => navigate("/")}
+      >
+        <img
+          src={leftArrow}
+          alt="navigation"
+          style={{ height: 53, width: 36 }}
+        />
       </button>
     </div>
   );

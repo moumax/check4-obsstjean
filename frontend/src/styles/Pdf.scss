@@ -1,64 +1,73 @@
 @import "../styles/Variables.scss";
 
 .pdf-container {
-  margin: auto;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-}
+  overflow: hidden;
 
-.PDFPage {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-}
+  .PDFPage {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
 
-.PDFPageOne {
-  margin-bottom: 5px;
-}
+  .PDFPageOne {
+    margin-bottom: 150px;
+  }
 
-.PDFDocument {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 90%;
-}
+  .PDFDocument {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+  }
 
-.PDFPage > canvas,
-.PDFPage > div {
-  width: 90vw !important;
-  max-width: 100%;
-  height: auto !important;
-}
-
-button {
-  border: none;
-  border-radius: 10px;
-  width: 70px;
-  height: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  transition: filter 0.2s ease-in-out;
-  margin: 5px;
-}
-
-.Pre {
-  margin-left: 50px;
-}
-
-@media (min-width: 767px) {
   .PDFPage > canvas,
   .PDFPage > div {
-    width: auto !important;
+    width: 70vw !important;
+    max-width: 100vh;
+    height: 40vh !important;
+  }
 
-    height: 80vh !important;
-    max-height: 100%;
+  .Pre {
+    border: none;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: filter 0.2s ease-in-out;
+    margin: 5px;
+    background-color: #72808e;
+    z-index: 0;
+    margin-left: 10px;
   }
 
   .PDFPage > .react-pdf__Page__annotations {
     display: none;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .PDFPage > canvas,
+  .PDFPage > div {
+    width: 78vw !important;
+
+    height: 70vh !important;
+    max-height: 100vh;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .pdf-container {
+    .PDFPage > canvas,
+    .PDFPage > div {
+      max-width: 70vw !important;
+      height: 40vh !important;
+      max-height: 100vh;
+    }
   }
 }

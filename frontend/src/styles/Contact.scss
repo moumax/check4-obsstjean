@@ -1,104 +1,63 @@
 @import "./Variables.scss";
 
 .contact-container {
-  padding: 100px;
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    .title {
-      font-size: 2.5rem;
-      padding-bottom: 100px;
-      background: linear-gradient(to bottom, #fffc08, #575506);
-      opacity: 1;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    ul {
-      margin-top: 20px;
-    }
-  }
-}
-
-.carte {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
   width: 100%;
-  height: 50vh;
-  flex-wrap: wrap;
-}
-
-.carte iframe {
-  border-radius: 20px;
-}
-
-.contactinfo {
-  text-align: center;
-  margin-left: 1em;
-}
-
-.contactinfo h3 {
-  font-size: 1.5vw;
-  margin-bottom: 0.1em;
-}
-
-.contactinfo p {
-  font-size: 1vw;
-}
-
-.contactinfo i {
-  font-size: 2vw;
-  font-weight: 600;
-  margin-top: 1rem;
-  margin: 0.3em;
-}
-
-.fa-facebook-f {
-  color: #3578e5;
-}
-
-.mail {
-  color: red;
-  font-family: "Exo 2", sans-serif;
-  vertical-align: middle;
-}
-
-.facebookMail {
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-}
 
-@media screen and (max-width: 1000px) {
-  .contactinfo h3 {
-    font-size: 2.5vw;
+  .title {
+    margin-top: 5vh;
+    font-size: 2.5rem;
+    background: linear-gradient(to bottom, #fffc08, #575506);
+    opacity: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .contactinfo p {
-    font-size: 1.5vw;
+  .contact-text {
+    color: lightgrey;
+    font-size: 3.5vw;
   }
 
-  .contactinfo i {
+  .carte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50vh;
+  }
+
+  .contact-horaire {
+    color: lightgrey;
     font-size: 3vw;
   }
+
+  .carte iframe {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+  }
+}
+.button-right {
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  right: 0;
+  top: 40%;
+}
+.button-left {
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  left: 0;
+  top: 40%;
 }
 
-@media screen and (max-width: 500px) {
-  .contactinfo h3 {
-    font-size: 4vw;
-  }
+@media screen and (min-width: 769px) {
+}
 
-  .contactinfo p {
-    font-size: 2.5vw;
-  }
-
-  .contactinfo i {
-    font-size: 6vw;
-  }
+@media screen and (min-width: 1201px) {
 }
