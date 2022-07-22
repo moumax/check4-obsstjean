@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-// const auth = require("./middlewares/auth");
+const auth = require("./middlewares/auth");
 require("dotenv").config();
 
 const app = express();
@@ -26,7 +26,7 @@ const userRouter = require("./Routes/userRouter");
 const authRouter = require("./Routes/authRouter");
 const eventRouter = require("./Routes/eventRouter");
 
-router.use("/user", userRouter);
+router.use("/user", auth, userRouter);
 router.use("/auth", authRouter);
 router.use("/event", eventRouter);
 

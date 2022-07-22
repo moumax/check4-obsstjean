@@ -1,2 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
+
 $background-global: #01244a;
-$main-font: "Inter", "Verdana";
+$main-font: "Exo 2", "Verdana";
+
+.button-right {
+  background-color: #01244a;
+  border: none;
+  height: 10%;
+  width: 10%;
+  position: absolute;
+  right: 0;
+  top: 40%;
+}
+.button-left {
+  background-color: #01244a;
+  border: none;
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  left: 0;
+  top: 40%;
+}

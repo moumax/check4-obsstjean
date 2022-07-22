@@ -1,153 +1,165 @@
 @import "./Variables.scss";
 
 .events-container {
-  padding: 100px;
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-    .title {
-      font-size: 2.5rem;
-      padding-bottom: 100px;
-      background: linear-gradient(to bottom, #fffc08, #575506);
-      opacity: 1;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    ul {
-      margin-top: 20px;
-    }
-  }
-}
-
-.timeline {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.timeline a {
-  color: red;
-}
-
-.timeline h2 {
-  font-size: 1.5rem;
-}
-
-.timeline li p {
-  font-family: "Exo 2", sans-serif;
-  font-size: 1rem;
-}
-
-.timeline ul {
-  border-left: 3px solid #ffe838;
-  border-radius: 1.8vw;
-  margin: 0 auto;
-  position: relative;
-  padding: 5vw;
-  list-style: none;
-  text-align: left;
-  width: 80%;
-  left: 5vw;
-}
-
-.timeline .date {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 2vw;
-  padding-bottom: 1vw;
-  margin-left: 1.1vw;
-  position: relative;
-}
-
-.timeline .date:last-of-type {
-  padding-bottom: 0;
-  margin-bottom: 0;
-  border: none;
-}
-
-.timeline .date::before,
-.timeline .date::after {
-  position: absolute;
-  display: block;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.timeline .date::before {
-  content: attr(data-date);
-  left: -25vw;
-  width: 9vw;
-  text-align: right;
-}
-
-.timeline .date::after {
-  content: "";
-  box-shadow: 0 0 0 2px #fd57bf;
-  border-radius: 100%;
-  left: -6.7vw;
-  height: 1vw;
-  width: 1vw;
-  background-color: #313534;
-}
-
-.timeline li.date::before {
-  font-size: 1.2vw;
-}
-
-@media screen and (max-width: 1000px) {
-  .timeline ul {
-    left: 8vw;
+  .title {
+    margin-top: 5vh;
+    font-size: 2.5rem;
+    background: linear-gradient(to bottom, #fffc08, #575506);
+    opacity: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .timeline h1 {
-    font-size: 2vw;
+  .timeline {
+    position: absolute;
+    top: 20%;
+    width: 70%;
   }
 
-  .timeline li p {
-    font-size: 1.3vw;
+  .timeline a {
+    color: red;
   }
 
-  .timeline li.date::before {
-    font-size: 1vw;
+  .timeline .event-title {
+    color: grey;
+    font-size: 3vw;
+    margin-bottom: 10px;
+  }
+
+  .timeline .event-date {
+    color: rgb(225, 169, 169);
+    font-size: 3vw;
+    margin-bottom: 10px;
+  }
+
+  .timeline .event-description {
+    color: rgb(196, 202, 83);
+    font-size: 3vw;
+    margin-bottom: 10px;
+  }
+
+  .timeline .event-site {
+    color: rgb(135, 222, 63);
+    font-size: 3vw;
+    margin-bottom: 10px;
   }
 
   .timeline ul {
-    width: 80%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .timeline h1 {
-    font-size: 3.5vw;
-  }
-
-  .timeline li p {
-    font-size: 2.5vw;
-  }
-
-  .timeline li.date::before {
+    border-left: 3px solid #ffe838;
+    border-radius: 1.8vw;
+    margin: 0 auto;
+    position: relative;
+    padding: 5vw;
+    list-style: none;
     text-align: center;
-    font-size: 2.5vw;
+    width: 100%;
+    left: 5vw;
+    margin-bottom: 3vh;
   }
 
-  .timeline ul {
-    width: 85%;
-    border-left: 2px solid #ffe838;
+  .timeline .date {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2vw;
+    padding-bottom: 1vw;
+    margin-left: 1.1vw;
+    position: relative;
   }
 
+  .timeline .date:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+  }
+
+  .timeline .date::before,
   .timeline .date::after {
-    box-shadow: 0 0 0 1px #fd57bf;
-    left: -7.2vw;
-    height: 2vw;
-    width: 2vw;
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .timeline .date::before {
-    left: -20vw;
-    width: 12vw;
+    content: attr(data-date);
+    left: -25vw;
+    width: 9vw;
+    text-align: right;
+  }
+
+  .timeline .date::after {
+    content: "";
+    box-shadow: 0 0 0 2px #fd57bf;
+    border-radius: 100%;
+    left: -7.1vw;
+    height: 2vw;
+    width: 2vw;
+    background-color: #313534;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .events-container {
+    .timeline .event-title {
+      font-size: 2vw;
+    }
+
+    .timeline .event-date {
+      font-size: 2vw;
+    }
+
+    .timeline .event-description {
+      font-size: 2vw;
+    }
+
+    .timeline .event-site {
+      font-size: 2vw;
+    }
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .events-container {
+    .timeline {
+      width: 40%;
+    }
+
+    .timeline ul {
+      border-radius: 1.8vw;
+      padding: 2vw;
+      list-style: none;
+      text-align: center;
+      width: 100%;
+      left: 5vw;
+      margin-bottom: 3vh;
+    }
+
+    .timeline .date::after {
+      left: -3.9vw;
+      height: 1.5vw;
+      width: 1.5vw;
+    }
+
+    .timeline .event-title {
+      font-size: 1vw;
+    }
+
+    .timeline .event-date {
+      font-size: 1vw;
+    }
+
+    .timeline .event-description {
+      font-size: 1vw;
+    }
+
+    .timeline .event-site {
+      font-size: 1vw;
+    }
   }
 }

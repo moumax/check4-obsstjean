@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
-import Menu from "./components/Menu";
 
 import "./App.scss";
 import "./styles/reset.scss";
@@ -19,18 +18,15 @@ function App() {
     <CurrentUserContextProvider>
       <div className="app">
         <div className="full-container">
-          <div className="app-container">
-            <Menu />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/ciel" element={<Ciel />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/administration" element={<Administration />} />
-              <Route path="*" element={<Error />} />
-            </Routes>
-          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/ciel" element={<Ciel />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/administration" element={<Administration />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
         </div>
       </div>
     </CurrentUserContextProvider>

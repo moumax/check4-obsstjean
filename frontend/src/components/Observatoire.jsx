@@ -6,14 +6,12 @@ export default function Observatoire() {
   return (
     <section className="observatoire" id="observatoire">
       <div className="container">
-        <div>
-          <img src="src/assets/photo001.jpg" alt="coupole-observatoire" />
+        <img src="src/assets/photo001.jpg" alt="coupole-observatoire" />
+        <div className="observatoireTitre">
+          <h1>Obsstjean</h1>
+          <h6>LObservatoire</h6>
         </div>
-        <div>
-          <div className="observatoireTitre">
-            <h1>Obsstjean</h1>
-            <h6>LObservatoire</h6>
-          </div>
+        <div className="para">
           <p>
             Depuis 1985, lAssociation accueille le public dans le but de
             promouvoir lastronomie amateur.

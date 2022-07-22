@@ -6,46 +6,83 @@
   align-items: center;
   height: 100%;
 
-  h1 {
+  .title {
+    margin-top: 5vh;
+    font-size: 2.5rem;
     background: linear-gradient(to bottom, #fffc08, #575506);
     opacity: 1;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    user-select: none;
-    font-size: 4rem;
-    text-align: center;
-    font-family: "Exo 2", sans-serif;
   }
-}
 
-.event-list {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  // color: red;
-
-  ul {
-    margin-bottom: 20px;
+  .create {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 70%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    ul {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    .input-event {
+      background-color: #01244a;
+      border: none;
+      font-size: 1rem;
+      height: 30px;
+      color: #76889b;
+      width: 100%;
+      text-align: center;
+    }
   }
 
-  input {
-    background-color: #01244a;
-    border: none;
-    font-size: 1.6rem;
-    height: 30px;
-    color: #76889b;
-  }
+  .list {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 
-  button {
-    color: black;
-    font-size: 1.3rem;
-    opacity: 0.3;
-    margin-right: 10px;
-    margin-top: 20px;
+    ul {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-event {
+      background-color: #01244a;
+      border: none;
+      font-size: 1rem;
+      height: 30px;
+      color: #76889b;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn-admin {
+      color: red;
+      font-size: 1rem;
+      opacity: 0.3;
+      margin-right: 10px;
+      margin-top: 20px;
+      background-color: lightgrey;
+      width: 100%;
+    }
+    .btn {
+      width: 100%;
+      color: black;
+      font-size: 1.3rem;
+      opacity: 0.3;
+      margin-right: 10px;
+      margin-top: 20px;
+      background-color: lightgrey;
+      border: none;
+      border-radius: 10px;
+    }
   }
 }

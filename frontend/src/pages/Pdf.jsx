@@ -50,25 +50,25 @@ export default function Test() {
       >
         <Page className="PDFPage PDFPageOne" pageNumber={pageNumber} />
       </Document>
+
       <div>
-        <div>
-          Page {pageNumber || (numPages ? 1 : "--")} sur {numPages || "--"}
-          <button
-            type="button"
-            disabled={pageNumber <= 1}
-            onClick={previousPage}
-            className="Pre"
-          >
-            Prec
-          </button>
-          <button
-            type="button"
-            disabled={pageNumber >= numPages}
-            onClick={nextPage}
-          >
-            Suiv
-          </button>
-        </div>
+        Page {pageNumber || (numPages ? 1 : "--")} sur {numPages || "--"}
+        <button
+          type="button"
+          disabled={pageNumber <= 1}
+          onClick={previousPage}
+          className="Pre"
+        >
+          Prec
+        </button>
+        <button
+          type="button"
+          disabled={pageNumber >= numPages}
+          onClick={nextPage}
+          className="Pre"
+        >
+          Suiv
+        </button>
       </div>
     </div>
   );
