@@ -1,0 +1,33 @@
+@import "./Variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap");
+
+.title {
+  font-family: "Exo 2", sans-serif;
+  margin-left: 5vw;
+  margin-right: 5vw;
+
+  h1 {
+    background: linear-gradient(to bottom, #fffc08, #575506);
+    opacity: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+    font-size: clamp(1.3rem, 5vw, 3rem);
+    text-align: center;
+    font-family: "Exo 2", sans-serif;
+  }
+
+  h6 {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    font-size: clamp(0.8rem, 4vw, 2.5rem);
+    text-align: center;
+    opacity: 0.5;
+    font-family: "Exo 2", sans-serif;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .title {
+  }
+}

@@ -1,0 +1,71 @@
+@import "./Variables.scss";
+
+.observatoire {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .observatoireTitre {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 0;
+    margin-bottom: 2vh;
+  }
+
+  h1 {
+    font-size: 2rem;
+    opacity: 0.3;
+  }
+
+  h6 {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 3vh;
+  }
+
+  img {
+    border-radius: 10px;
+    width: 70vw;
+    margin-bottom: 12vh;
+  }
+
+  p {
+    font-size: 1rem;
+    padding: 4vw;
+    font-family: "Exo 2", sans-serif;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .observatoire {
+    img {
+      width: 600px;
+      margin-bottom: 7vh;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+
+    h6 {
+      font-size: 1.3rem;
+      margin-bottom: 3vh;
+    }
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .observatoire {
+    .container {
+      flex-direction: column;
+    }
+    .observatoireTitre {
+      font-size: 10rem;
+    }
+    p {
+      font-size: clamp(30px, 2rem, 75px);
+    }
+  }
+}

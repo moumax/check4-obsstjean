@@ -1,12 +1,10 @@
 const models = require("../models");
 
-class ItemController {
+class EventController {
   static browse = (req, res) => {
-    models.item
+    models.events
       .findAll()
-      .then(([rows]) => {
-        res.send(rows);
-      })
+      .then((events) => res.send(events))
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
@@ -14,37 +12,16 @@ class ItemController {
   };
 
   static read = (req, res) => {
-    models.item
+    models.events
       .find(req.params.id)
-      .then(([rows]) => {
-        if (rows[0] == null) {
+      .then((event) => {
+        if (event.length === 0) {
           res.sendStatus(404);
         } else {
-          res.send(rows[0]);
+          res.send(event);
         }
       })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
 
-  static edit = (req, res) => {
-    const item = req.body;
-
-    // TODO validations (length, format...)
-
-    item.id = parseInt(req.params.id, 10);
-
-    models.item
-      .update(item)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
@@ -52,14 +29,27 @@ class ItemController {
   };
 
   static add = (req, res) => {
-    const item = req.body;
-
-    // TODO validations (length, format...)
-
-    models.item
-      .insert(item)
+    const newEvent = req.body;
+    models.events
+      .insert({ ...newEvent })
       .then(([result]) => {
-        res.status(201).send({ ...item, id: result.insertId });
+        res.status(201).send({ ...newEvent, id: result.insertId });
+      })
+
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static modify = async (req, res) => {
+    const newEvent = req.body;
+
+    models.events
+      .update(newEvent, req.params.id)
+      .then(([result]) => {
+        if (result.affectedRows === 0) throw new Error("no change affected");
+        res.status(201).send({ ...newEvent });
       })
       .catch((err) => {
         console.error(err);
@@ -67,8 +57,8 @@ class ItemController {
       });
   };
 
-  static delete = (req, res) => {
-    models.item
+  static delete = async (req, res) => {
+    models.events
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -80,4 +70,4 @@ class ItemController {
   };
 }
 
-module.exports = ItemController;
+module.exports = EventController;
