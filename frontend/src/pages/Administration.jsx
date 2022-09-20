@@ -103,6 +103,13 @@ export default function Administration() {
   return (
     <div className="administration-container">
       <h1 className="title">Administration</h1>
+      <button
+        className="btn-tools"
+        type="button"
+        onClick={() => navigate("/tools")}
+      >
+        Tools
+      </button>
       <div className="list">
         {event.map((data) => (
           <ul key={data.id}>
