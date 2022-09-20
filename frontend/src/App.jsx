@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Contact from "./pages/Contact";
 import Ciel from "./pages/Ciel";
 import Administration from "./pages/Administration";
+import Tools from "./pages/Tools";
 
 import { CurrentUserContextProvider } from "./contexts/userContext";
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/ciel" element={<Ciel />} />
             <Route path="/login" element={<Login />} />
             <Route path="/administration" element={<Administration />} />
+            <Route path="/tools" element={<Tools />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </div>
