@@ -10,8 +10,9 @@ export default function Ciel() {
   // eslint-disable-next-line no-unused-vars
   const { user, setUser } = useContext(CurrentUserContext);
   const [cameras, setCameras] = useState([]);
+  const [camerasId, setCamerasId] = useState("");
   const [brand, setBrand] = useState("");
-  const [model, setModel] = useState("");
+  const [model, setModel] = useState([]);
   const [sensor, setSensor] = useState("");
   const [widthmm, setWidthmm] = useState("");
   const [heightmm, setHeightmm] = useState("");
@@ -66,9 +67,63 @@ export default function Ciel() {
     } else toast.warning("Vous n'êtes pas connecté !");
   };
 
+  const createNewCamera = () => {
+    // e.preventDefault();
+    if (user) {
+      userAPI
+        .post(`/api/cameras`, {
+          brand,
+          model,
+          sensor,
+          widthmm,
+          heightmm,
+          widthpx,
+          height,
+          photosites,
+          megapixels,
+          maxspeed,
+          dynamic,
+          bits,
+          readnoise,
+          fullwell,
+          readtime,
+          cooler,
+        })
+        .then(() => {
+          toast.success("Nouvelle caméra ajouté !");
+          getCameras();
+          setCameras("");
+          setBrand("");
+          setModel("");
+          setSensor("");
+          setWidthmm("");
+          setHeightmm("");
+          setWidthpx("");
+          setHeight("");
+          setPhotosites("");
+          setMegapixels("");
+          setMaxspeed("");
+          setDynamic("");
+          setReadnoise("");
+          setFullwell("");
+          setReadtime("");
+          setCooler("");
+        })
+        .catch((err) => {
+          console.error(err);
+          toast.warning("Erreur lors de l'envoi du formulaire");
+        });
+    } else toast.warning("Vous n'êtes pas connecté !");
+  };
+
   useEffect(() => {
     getCameras();
   }, []);
+
+  const handleCameras = (event) => {
+    const getCamerasId = event.target.value;
+    setCamerasId(getCamerasId);
+  };
 
   return (
     <div className="tools-container">
@@ -80,7 +135,25 @@ export default function Ciel() {
       >
         Retour
       </button>
-      <div className="list">
+
+      <div className="camera">
+        <select
+          name="cameras"
+          className="cameras"
+          onChange={(e) => handleCameras(e)}
+        >
+          <option>--Selection Caméra</option>
+          {cameras.map((cameraGet) => (
+            <option key={cameraGet.id}>
+              {cameraGet.brand} -- {cameraGet.model}
+            </option>
+          ))}
+        </select>
+        {cameras.map((cameraGet) => (
+          <option key={cameraGet.id}>{cameraGet.readnoise}</option>
+        ))}
+      </div>
+      {/* <div className="create">
         {cameras.map((data) => (
           <ul key={data.id}>
             <li>
@@ -88,7 +161,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="Marque"
-                defaultValue={data.brand}
+                defaultValue={brand}
                 onChange={(e) => setBrand(e.target.value)}
               />
             </li>
@@ -97,7 +170,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="Model"
-                defaultValue={data.model}
+                defaultValue={model}
                 onChange={(e) => setModel(e.target.value)}
               />
             </li>
@@ -106,7 +179,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="Sensor"
-                defaultValue={data.sensor}
+                defaultValue={sensor}
                 onChange={(e) => setSensor(e.target.value)}
               />
             </li>
@@ -115,7 +188,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="widthmm"
-                defaultValue={data.widthmm}
+                defaultValue={widthmm}
                 onChange={(e) => setWidthmm(e.target.value)}
               />
             </li>
@@ -124,7 +197,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="heightmm"
-                defaultValue={data.heightmm}
+                defaultValue={heightmm}
                 onChange={(e) => setHeightmm(e.target.value)}
               />
             </li>
@@ -133,7 +206,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="widthpx"
-                defaultValue={data.widthpx}
+                defaultValue={widthpx}
                 onChange={(e) => setWidthpx(e.target.value)}
               />
             </li>
@@ -142,7 +215,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="height"
-                defaultValue={data.height}
+                defaultValue={height}
                 onChange={(e) => setHeight(e.target.value)}
               />
             </li>
@@ -151,7 +224,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="photosites"
-                defaultValue={data.photosites}
+                defaultValue={photosites}
                 onChange={(e) => setPhotosites(e.target.value)}
               />
             </li>
@@ -160,7 +233,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="megapixels"
-                defaultValue={data.megapixels}
+                defaultValue={megapixels}
                 onChange={(e) => setMegapixels(e.target.value)}
               />
             </li>
@@ -169,7 +242,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="maxspeed"
-                defaultValue={data.maxspeed}
+                defaultValue={maxspeed}
                 onChange={(e) => setMaxspeed(e.target.value)}
               />
             </li>
@@ -178,7 +251,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="dynamic"
-                defaultValue={data.dynamic}
+                defaultValue={dynamic}
                 onChange={(e) => setDynamic(e.target.value)}
               />
             </li>
@@ -187,7 +260,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="bits"
-                defaultValue={data.bits}
+                defaultValue={bits}
                 onChange={(e) => setBits(e.target.value)}
               />
             </li>
@@ -196,7 +269,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="readnoise"
-                defaultValue={data.readnoise}
+                defaultValue={readnoise}
                 onChange={(e) => setReadnoise(e.target.value)}
               />
             </li>
@@ -205,7 +278,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="fullwell"
-                defaultValue={data.fullwell}
+                defaultValue={fullwell}
                 onChange={(e) => setFullwell(e.target.value)}
               />
             </li>
@@ -214,7 +287,7 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="readtime"
-                defaultValue={data.readtime}
+                defaultValue={readtime}
                 onChange={(e) => setReadtime(e.target.value)}
               />
             </li>
@@ -223,20 +296,20 @@ export default function Ciel() {
                 className="input-camera"
                 type="text"
                 placeholder="cooler"
-                defaultValue={data.cooler}
+                defaultValue={cooler}
                 onChange={(e) => setCooler(e.target.value)}
               />
             </li>
             <button
               className="btn-admin"
               type="button"
-              onClick={() => updateCameras(data.id)}
+              onClick={() => createNewCamera(data.id)}
             >
-              Modifier la caméra
+              Créer une nouvelle caméra
             </button>
           </ul>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
